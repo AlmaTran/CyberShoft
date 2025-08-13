@@ -1,0 +1,32 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 3.1rem;
+}
+
+/*
+html
+16px  - 100% 
+10px  - ??? =>  62.5%
+
+*/
+img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    
+}
