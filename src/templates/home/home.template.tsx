@@ -1,25 +1,23 @@
-import React, { PropsWithChildren } from 'react'
+import React, { PropsWithChildren, Suspense } from 'react'
 import { Outlet } from 'react-router-dom';
+import Header from './header/header';
+import Footer from './footer/footer';
 
 function HomeTemplate(props:PropsWithChildren) {
   return (
     <div>
-        <header 
-            style={{
-                height: 50,
-                backgroundColor: "green",
-            }}
-        >Header</header>
-        
-        <Outlet/>
 
-        <footer 
-            style={{
-                height: 50,
-                backgroundColor: "black",
-                color: "white",
-            }}
-        >Footer</footer>
+        <Header/>
+
+        {/* ---------PAGES------ */}
+        <Suspense fallback={<p>"Loading...?"</p>}>
+            <Outlet/>
+        </Suspense>
+          {/*---------PAGES------- */}
+        {/* // Dùng outlet để render components */}
+        {/* {props.children} */}
+
+        <Footer/>
     </div>
   )
 }

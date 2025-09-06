@@ -1,14 +1,22 @@
+
+import { lazy, Suspense } from "react";
+// ----------------------------
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../pages/home/home";
-import Search from "../pages/search/search";
-import Detail from "../pages/home/detail/detail";
-import Login from "../pages/login/login";
-import Carts from "../pages/carts/carts";
-import Profile from "../pages/profile/profile";
-import Register from "../pages/register/register";
+// -----------------------------
+// import Home from "../pages/home/home";
+const Search = lazy(() => import("../pages/search/search"));
+const Detail = lazy(() => import("../pages/home/detail/detail"));
+const Login = lazy(() => import("../pages/login/login"));
+const Carts = lazy(() => import("../pages/carts/carts"));
+const Profile = lazy(() => import("../pages/profile/profile"));
+const Register = lazy(() => import("../pages/register/register"));
+//------ Template sẽ rất nhẹ chúng ta không cần lazy load -------- 
 import HomeTemplate from "../templates/home/home.template";
 import AuthTemplate from "../templates/auth/auth.template";
 
+// ------------- Lazy Load ---------------
+
+const Home = lazy(() => import("../pages/home/home"));
 
 //setup router
 //path không được có "/" phía trước đường dẫn.
@@ -20,7 +28,7 @@ import AuthTemplate from "../templates/auth/auth.template";
 
 export const router = createBrowserRouter([
     {
-        path: "home",
+        path: "",
         element: <HomeTemplate/>,
         children: [
             {
@@ -29,7 +37,21 @@ export const router = createBrowserRouter([
             },
             {
                 path: "search",
-                element: <Search/>
+                element: (
+                    // nếu file component chưa tải xong thì nó sẽ render componenet trong fallback
+                    <Suspense fallback="Loading...?">
+                        <Search/>
+                    </Suspense>
+
+                ),
+                children: [
+                    {
+                        path: "abc",
+                        element: <h1>Thuận</h1>
+                    },
+               
+                ]
+
             },
             {
                 path: "detail",
@@ -60,8 +82,13 @@ export const router = createBrowserRouter([
 
              }
         ]
-    }
+    },
+    {
+        path: "*", // nếu người dùng gõ một path khoogn trùng khớp với mọi 
+        // setup trong router
+        element: <h1>Page not found</h1>
+    },
    
 
 
-])
+]);

@@ -12,6 +12,7 @@ body {
     font-size: 1.6rem;
     font-family: 'Inter', sans-serif;
     font-weight: normal;
+    margin: 0
 }
 
 h1 {
@@ -29,4 +30,11 @@ img {
     object-fit: cover;
     display: block;
     
+}
+
+button {
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
 }

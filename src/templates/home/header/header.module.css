@@ -1,0 +1,56 @@
+.header {
+    height: 6rem;
+    background-color: #000000;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.logo {
+    height: 5.2rem;
+    background-color: red;
+    width: 8rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.search,.cart, .left,.auth {
+    display: flex;
+    align-items: center;
+}
+.login,.register {
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.6rem;
+    background-color: transparent;
+    border: none;
+    
+}
+
+.margin-left {
+    margin-left: 1rem;
+}
+/*nav---------------*/
+.nav {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    display: flex;
+    gap: 1rem;
+    height: 5rem;
+    line-height: 5rem;
+}
+
+.link {
+    color: #000;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.link-active {
+    border-bottom: 0.1rem solid #000000;
+}
