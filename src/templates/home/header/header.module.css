@@ -1,6 +1,6 @@
 .header {
     height: 6rem;
-    background-color: #000000;
+    background-color: #060a0e;
     
     display: flex;
     align-items: center;
@@ -12,11 +12,12 @@
 
 .logo {
     height: 5.2rem;
-    background-color: red;
+    background-color: rgb(225, 246, 250);
     width: 8rem;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    /* border-radius: 4px; */
     
 }
 .search,.cart, .left,.auth {
@@ -53,4 +54,6 @@
 
 .link-active {
     border-bottom: 0.1rem solid #000000;
+    /* position: absolute; */
+    margin-bottom: 1rem;
 }

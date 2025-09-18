@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 
-export const IconCart = memo(function IconCart() {
+export  const IconCart = memo(function IconCart() {
   return (
     <svg
       width="4.5rem"
