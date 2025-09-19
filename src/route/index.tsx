@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
 
             },
             {
-                path: "detail",
+                path: "detail/:idDetail",//detail/1 , detail/2
                 element: <Detail/>
             },
             {
@@ -83,11 +83,11 @@ export const router = createBrowserRouter([
              }
         ]
     },
-    {
-        path: "*", // nếu người dùng gõ một path khoogn trùng khớp với mọi 
-        // setup trong router
-        element: <h1>Page not found</h1>
-    },
+    // {
+    //     path: "*", // nếu người dùng gõ một path khoogn trùng khớp với mọi 
+    //     // setup trong router
+    //     element: <h1>Page not found</h1>
+    // },
    
 
 

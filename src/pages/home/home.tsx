@@ -6,6 +6,8 @@ import * as GS from 'src/components/style'
 import { ListCard } from 'src/components/list-card'
 import { getAllProduct } from 'src/services'
 import { IIFE } from 'src/utils'
+import { convert } from './convert'
+import { TCard } from 'src/components/list-card/card'
 
 
 
@@ -18,17 +20,19 @@ function Home() {
 
   // 1> call ở đây
 
-  const [listProduct, setListProduct] = useState([]);
+  const [listProduct, setListProduct] = useState<TCard[]>([]);
   
   useEffect(() => {   
     
     //IIFE : (() => {})()
    IIFE(async () => {
     const resp = await getAllProduct();
-    setListProduct(resp);
+    setListProduct(convert(resp));
    });
 
   },[]);
+
+  console.log(listProduct)
 
   return (
     <div>
@@ -39,7 +43,7 @@ function Home() {
         <div style={{
           margin: "3rem"
         }}>
-           <ListCard/>
+           <ListCard data={listProduct}/>
         </div>
     </div>
   )

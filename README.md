@@ -11,3 +11,4 @@ npm i preattier -D
 ## prettier: format code
 ## eslint: rule của project
 
+## layout giống nhau, khác content

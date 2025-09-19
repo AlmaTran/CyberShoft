@@ -33,7 +33,7 @@ export const Name = styled.p`
 `;
 export const Desc = styled.p`
   font-family: Inter;
-  font-size: 2rem;
+  font-size: 0.8rem;
   font-weight: 300;
   color: #cbc9c9;
 `;
