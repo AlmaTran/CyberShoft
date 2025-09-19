@@ -1,6 +1,7 @@
 
 import { TProductAPI } from "src/pages/home/convert";
 import { axiosWithoutAuth } from "./axios.config";
+import { IDetailAPI } from "src/pages/home/detail/type";
 
 /**
  * sau khi CallAPI thì return về giá trị
@@ -26,7 +27,7 @@ export const getAllProduct = async (): Promise<TProductAPI[]> => {
   }
 }
 
-export const getProductById = async (id: string) => {
+export const getProductById = async (id: string):Promise<IDetailAPI> => {
   try {
     const resp = await axiosWithoutAuth("/Product/getbyid", {
       params: {id}

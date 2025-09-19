@@ -1,4 +1,5 @@
 import { TCard } from "src/components/list-card/card"
+import { IRelatedProduct } from "./detail/type"
 
 export type TProductAPI = {
   id: number
@@ -16,7 +17,7 @@ export type TProductAPI = {
   image: string
 }
 
-export const convert = (data: TProductAPI[]) : TCard[] =>{
+export const convert = (data: IRelatedProduct[]) : TCard[] =>{
     return data.map(item => ({
         desc: item.shortDescription,
         price: item.price,

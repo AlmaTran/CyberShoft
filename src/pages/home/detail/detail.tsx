@@ -1,9 +1,17 @@
-import React, { useEffect } from 'react'
-import { Outlet, useParams } from 'react-router-dom';
-import { getProductById } from 'src/services';
+import React, { useEffect, useState } from "react";
+import { Outlet, useParams } from "react-router-dom";
+import { getProductById } from "src/services";
+import { IIFE } from "src/utils";
+import { IDetailAPI } from "./type";
+import { convert } from "../convert";
+import { ListCard } from "src/components/list-card";
 
 function Detail() {
-  const params = useParams<{idDetail: string}>;
+  const { idDetail } = useParams<{ idDetail: string }>();
+  const params = useParams<{ idDetail: string }>();
+
+  const [detail, setDetail] = useState<IDetailAPI>();
+  console.log(detail);
   // console.log(params)
 
   /**
@@ -11,14 +19,28 @@ function Detail() {
    */
 
   useEffect(() => {
-      getProductById(params.idDetail)
-  },[])
+    if (params.idDetail) {
+      IIFE(async () => {
+        const resp = await getProductById(params.idDetail);
+        setDetail(resp);
+      });
+    }
+  }, [params.idDetail]);
+
   return (
     <div>
-      Detail
-      <Outlet/>
+      <img style={{
+        width: 500,
+        height: 400,
+        padding: "2rem"
+      }} src={detail?.image} alt="" />
+      {/* Cart */}
+      {/* Releproduct */}
+      {detail?.relatedProducts?.length   && (
+        <ListCard data={convert(detail.relatedProducts)} />
+      )}
     </div>
-  )
+  );
 }
 
-export default Detail
+export default Detail;
