@@ -54,6 +54,8 @@ export const router = createBrowserRouter([
 
             },
             {
+                //chú ý: params chỉ sử dụng cho trường hợp muốn truyền đi một thông số
+                
                 path: "detail/:idDetail",//detail/1 , detail/2
                 element: <Detail/>
             },

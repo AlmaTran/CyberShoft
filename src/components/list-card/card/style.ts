@@ -9,10 +9,14 @@ export const Wrapper = styled.div`
   flex-direction: column;
   border-radius: 0.4rem;
   overflow: hidden;
+  /* align-items: self-end; */
 
   .center {
     display: flex;
     justify-content: center;
+    align-items: self-end;
+    height: 100%;
+    
   }
   .content {
     margin: 4rem;

@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useParams,useLocation } from "react-router-dom";
 import { getProductById } from "src/services";
 import { IIFE } from "src/utils";
 import { IDetailAPI } from "./type";
 import { convert } from "../convert";
 import { ListCard } from "src/components/list-card";
+import { useScrollToTop } from "src/hooks/use-scroll-to-top";
+
+
+
+
+
 
 function Detail() {
-  const { idDetail } = useParams<{ idDetail: string }>();
+  // const { idDetail } = useParams<{ idDetail: string }>();
+
+  useScrollToTop();
+
+
   const params = useParams<{ idDetail: string }>();
 
   const [detail, setDetail] = useState<IDetailAPI>();
-  console.log(detail);
+  // console.log(detail);
   // console.log(params)
 
   /**
